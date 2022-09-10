@@ -1,13 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+  background-image: url('assets/backg.jpg');
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  background-position: center bottom;
+
+  background-color: rgb(21, 43, 53);
+  background-size: cover;
+  background-attachment: fixed;
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.logo {
+  border-radius: 76% 24% 34% 66% / 35% 39% 61% 65%;
+  box-shadow: 20px 20px 60px rgb(26, 53, 65),
+    -20px -20px 60px rgb(26, 53, 65);
+  ;
 }
+
+.annexlogo {
+  border-radius: 21% 79% 25% 75% / 64% 27% 73% 36%;
+  box-shadow: 9px 9px 31px rgb(26, 53, 65),
+    -9px -9px 31px rgb(26, 53, 65);
+}
+
+.alone {
+  box-shadow: 9px 9px 31px rgb(26, 53, 65),
+    -9px -9px 31px rgb(26, 53, 65);
+}
+
+/* body {
+  background-color: #fff;
+} */

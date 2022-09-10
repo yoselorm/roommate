@@ -1,23 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import Hero from "./Components/Hero";
+import Navbar from "./Components/Navbar";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import Home from "./Pages/Home";
+import FirstPage from "./Pages/FirstPage";
+import SecondPage from "./Pages/SecondPage";
+import ThirdPage from './Pages/ThirdPage';
+import ProfilePage from "./Pages/ProfilePage";
+import { AnimatePresence } from 'framer-motion';
+import PlacesAutocomplete, {
+  geocodeByAddress,
+  geocodeByPlaceId,
+  getLatLng,
+} from 'react-places-autocomplete';
+import ProfileDetailsPage from "./Pages/ProfileDetailsPage";
+import LoginPage from "./Pages/LoginPage";
+import UserDetails from "./Pages/UserDetails";
+import Result from "./Components/Result";
+import Profile from "./Components/Profile";
+
 
 function App() {
+  const location = useLocation();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className=" font-semibold">
+
+
+      <AnimatePresence exitBeforeEnter>
+        <Routes key={location.pathname} location={location}>
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/profilepage" element={<ProfilePage />} />
+          <Route path="/firstpage" element={<FirstPage />} />
+          <Route path="/secondpage" element={<SecondPage />} />
+          <Route path="/thirdpage" element={<ThirdPage />} />
+          <Route path="/userdetails" element={<UserDetails />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+      </AnimatePresence>
+
+
     </div>
   );
 }
