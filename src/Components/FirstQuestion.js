@@ -28,11 +28,11 @@ const FirstQuestion = (props) => {
 
 
     return (
-        <div className='text-white grid md:grid-cols-2 p-6'>
+        <div className=' grid md:grid-cols-2 p-6'>
 
             <div className='mt-10'>
-                <p className='text-white font-bold md:mt-5  md:text-4xl md:ml-2'>What part of Ghana are you looking for a roomate?</p>
-                <input type='text' className='mt-20 bg-transparent border-b-[1px] md:w-[80%] w-[100%] md:mb-20 focus:outline-none' value={location} onChange={(e) => { setLocation(e.target.value) }} placeholder='Type here' />
+                <p className='text-black font-bold md:mt-[6rem]  md:text-4xl md:ml-2'>What part of Ghana are you looking for a roomate?</p>
+                <input type='text' className='mt-24 bg-transparent border-slate-900 border-b-[1px] md:w-[80%] w-[100%] md:mb-20 focus:outline-none' value={location} onChange={(e) => { setLocation(e.target.value) }} placeholder='Type here' />
                 <div className=' justify-between mt-10 mb-10 hidden md:flex'>
                     <button className='bg-[#3282B8]  p-4 rounded-md text-black font-bold w-40 hover:bg-white' onClick={handlePrev}>Previous</button>
                     <button className='bg-[#3282B8]  p-4 rounded-md text-black font-bold w-40 hover:bg-white' onClick={handleToSecondPage}>Next</button>

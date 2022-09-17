@@ -16,6 +16,12 @@ export const addProfile = (profile) => {
         payload: profile,
     };
 };
+export const addDetails = (details) => {
+    return {
+        type: "ADD_DETAILS",
+        payload: details,
+    };
+};
 export const authUser = (auth) => {
     return {
         type: "AUTH_USER",

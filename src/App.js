@@ -17,6 +17,7 @@ import LoginPage from "./Pages/LoginPage";
 import UserDetails from "./Pages/UserDetails";
 import Result from "./Components/Result";
 import Profile from "./Components/Profile";
+import ChatPage from "./Pages/ChatPage";
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
           <Route path="/thirdpage" element={<ThirdPage />} />
           <Route path="/userdetails" element={<UserDetails />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/chatpage" element={<ChatPage />} />
         </Routes>
       </AnimatePresence>
 

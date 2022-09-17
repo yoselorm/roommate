@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import login from '../assets/login.png';
 import { useNavigate } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { authUser } from '../Redux/Action';
+import { addDetails, addProfile, authUser } from '../Redux/Action';
 import { useDispatch } from 'react-redux';
 import { AiOutlineEyeInvisible } from 'react-icons/ai';
 import { MdOutlineVisibility } from 'react-icons/md';
@@ -10,10 +10,10 @@ import { MdOutlineVisibility } from 'react-icons/md';
 
 
 
-const Login = () => {
-
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+const Login = (props) => {
+    console.log()
+    const [email, setEmail] = useState('yoselorm@gmail.com');
+    const [password, setPassword] = useState('123456');
     const [toggle, setToggle] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -29,6 +29,8 @@ const Login = () => {
         e.preventDefault();
         navigate('/profilepage')
     }
+    const user_email = email;
+    dispatch(addDetails(user_email))
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -41,19 +43,22 @@ const Login = () => {
                 navigate('/home', { replace: true })
 
             })
+
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
             });
-        // dispatch(authUser(true))
+
     }
+
+
 
     return (
         <div className='sm:flex sm:flex-row sm:m-10 m-6 sm:justify-between mt-20 sm:mt-[6%]'>
             <div className='text-white sm:w-[70%] sm:h-[50%] sm:ml-[120px] '>
-                <h1 className='font-bold text-4xl mb-16 text-[#3282B8] '>RooMBuddy</h1>
+                <h1 className='font-extrabold text-5xl mb-16 text-[#3282B8] '>RooMBuddy</h1>
 
-                <form className='flex flex-col justify-center mt-10 sm:flex sm:w-[80%] sm:flex-col backdrop-blur-md p-6 sm:pl-16'>
+                <form className='flex flex-col justify-center mt-10 sm:flex sm:max-w-[80%] sm:flex-col bg-[#413F42] p-6 sm:pl-16 rounded-2xl'>
                     <h1 className='font-bold text-3xl mb-8  '>Login</h1>
                     <p className='font-semibold text-xl text-gray-400'>Please sign in to continue</p>
                     <label>Email</label>
@@ -77,9 +82,9 @@ const Login = () => {
                 </form>
 
 
-                <p className='mt-16 sm:mt-10 text- sm:text-left text-center'>Don't have an account? <button className='font-semibold text-[#3282B8] hover:text-white cursor-pointer' onClick={handleSignUp}>Sign up</button></p>
+                <p className='mt-16 sm:mt-10 text- sm:text-left text-center text-black font-semibold'>Don't have an account? <button className='font-semibold text-[#3282B8] hover:text-black cursor-pointer' onClick={handleSignUp}>Sign up</button></p>
             </div>
-            <div className=' hidden sm:flex sm:justify-center '>
+            <div className=' hidden sm:flex sm:justify-center mt-16'>
                 <img src={login} className='w-[80%] h-[80%] logo ' />
             </div>
         </div>

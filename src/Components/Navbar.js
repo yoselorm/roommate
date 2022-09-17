@@ -76,20 +76,20 @@ const Navbar = () => {
         });
     }
     return (
-        <div className=' flex justify-between px-4 items-center max-w-[1240px] h-24 mx-auto text-white'>
-            <h1 variants={logovariants} initial='hidden' animate='visible' className='text-[#3282B8] font-extrabold md:text-3xl  text-2xl cursor-pointer hover:text-white' onClick={handleHome}>RooMBuddy</h1>
+        <div className=' flex justify-between px-4 items-center max-w-[1240px] h-24 mx-auto text-black'>
+            <h1 variants={logovariants} initial='hidden' animate='visible' className='text-[#3282B8] font-extrabold md:text-4xl  text-2xl cursor-pointer hover:text-black' onClick={handleHome}>RooMBuddy</h1>
             <motion.ul initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.5 }} className='md:flex mr-[10rem] hidden mt-2'>
                 <li className='mx-4 text-xl  font-semibold hover:text-[#3282B8] cursor-pointer ' >Home</li>
                 <li onClick={toProfileDetails} className='mx-4 text-xl font-semibold hover:text-[#3282B8] cursor-pointer'>Matches</li>
                 <li onClick={toProfile} className='mx-4 text-xl font-semibold ml-3 hover:text-[#3282B8] cursor-pointer' ><FaUserCog size={35} /></li>
 
             </motion.ul>
-            <button className='mx-2 font-semibold  hover:text-[#cc3131] cursor-pointer hidden sm:flex' onClick={handleLogout}>Logout</button>
+            <button className='text-white p-2 bg-slate-900 rounded-xl mx-2 font-semibold  hover:text-[#cc3131] cursor-pointer hidden sm:flex' onClick={handleLogout}>Logout</button>
             <div onClick={handleNav} className='md:hidden block'>
                 {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
             </div>
 
-            <motion.div variants={sidevariants} initial='hidden' animate='visible' className={nav ? 'fixed left-0 top-0 w-[60%] h-full border-r border-gray-800 bg-[#000300] z-10 ease-in-out duration-500' : 'fixed left-[-100%] '}>
+            <motion.div variants={sidevariants} initial='hidden' animate='visible' className={nav ? 'fixed left-0 top-0 w-[60%] h-full border-r border-gray-800 bg-[#413F42] text-white z-10 ease-in-out duration-500' : 'fixed left-[-100%] '}>
                 <h1 className='text-[#3282B8] font-bold text-3xl w-full m-4'>RooMBuddy</h1>
                 <ul className=''>
                     <li className='p-4 border-b font-semibold border-gray-500 w-[40%] ml-2 '>Home</li>

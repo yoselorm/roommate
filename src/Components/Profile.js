@@ -12,14 +12,16 @@ const Profile = () => {
     const storedloc = useSelector((state) => state.question);
     console.log(storedloc)
     //let result = storedloc.map(item => item.location);
-    let loc = storedloc.find(item => item.email);
+    //let loc = storedloc.find(item => item.email);
+    const usermail = useSelector((state) => state.details);
+    console.log(usermail)
 
 
     useEffect(() => {
         const getData = async () => {
 
             try {
-                const q = query(collection(db, "UserInfo"), where("email", "==", loc.email));
+                const q = query(collection(db, "UserInfo"), where("email", "==", usermail));
                 onSnapshot(q, (querySnapshot) => {
                     const profile = [];
                     querySnapshot.forEach((doc) => {

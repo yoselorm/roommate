@@ -22,6 +22,9 @@ export const profileReducer = (state = initialState, action) => {
         case "ADD_PROFILE":
             // return (state = { ...state, profile: [...state.profile, action.payload] });
             return (state = { ...state, profile: action.payload });
+        case "ADD_DETAILS":
+            // return (state = { ...state, profile: [...state.profile, action.payload] });
+            return (state = { ...state, details: action.payload });
         case 'AUTH_USER':
             return { authUser: action.payload }
 

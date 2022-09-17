@@ -83,6 +83,7 @@ const ThirdQuestion = (props) => {
         else {
             avgspecs = 'Better'
         }
+
         dispatch(addQuestion({ Preferred_specs: avgspecs }));
 
         const newPerson = {
@@ -107,7 +108,7 @@ const ThirdQuestion = (props) => {
         } catch (error) {
             console.log(error)
         }
-        console.log(newPerson)
+        //console.log(newPerson)
         navigate('/userdetails');
 
     }
@@ -115,9 +116,9 @@ const ThirdQuestion = (props) => {
 
 
     return (
-        <div className='text-white grid  md:grid-cols-2 p-6'>
-            <div className='mt-1 '>
-                <p className='text-white font-bold  md:pt-5 2xl md:text-4xl md:ml-2'>How important are the following in a roommate?</p>
+        <div className=' grid  md:grid-cols-2 p-6'>
+            <div className='sm:ml-16 sm:mt-10  p-6 w-[80%] rounded-xl '>
+                <p className=' font-bold  md:pt-5 2xl md:text-4xl md:ml-2'>How important are the following in a roommate?</p>
                 <p className='mb-5 md:ml-5'>On a scale of 1- 5, with 1 being the lowest and 5 being the highest</p>
                 <div className='ml-10 '>
                     <p>Cleanliness</p>
@@ -133,7 +134,7 @@ const ThirdQuestion = (props) => {
 
                             });
                             setCleanliness(1);
-                        }} className={cleantoggle.oneStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '} >1</button>
+                        }} className={cleantoggle.oneStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border- border-black  border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '} >1</button>
                         <button onClick={() => {
                             setCleantoggle({
 
@@ -145,7 +146,7 @@ const ThirdQuestion = (props) => {
 
                             })
                             setCleanliness(2);
-                        }} className={cleantoggle.twoStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>2</button>
+                        }} className={cleantoggle.twoStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-black border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>2</button>
 
                         <button onClick={() => {
                             setCleantoggle({
@@ -158,7 +159,7 @@ const ThirdQuestion = (props) => {
 
                             })
                             setCleanliness(3);
-                        }} className={cleantoggle.threeStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>3</button>
+                        }} className={cleantoggle.threeStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-black border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>3</button>
                         <button onClick={() => {
                             setCleantoggle({
 
@@ -170,7 +171,7 @@ const ThirdQuestion = (props) => {
 
                             })
                             setCleanliness(4);
-                        }} className={cleantoggle.fourStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>4</button>
+                        }} className={cleantoggle.fourStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-black border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>4</button>
                         <button onClick={() => {
                             setCleantoggle({
 
@@ -183,7 +184,7 @@ const ThirdQuestion = (props) => {
                             })
                             setCleanliness(5);
 
-                        }} className={cleantoggle.fiveStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>5</button>
+                        }} className={cleantoggle.fiveStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-black border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>5</button>
                     </div>
 
                     <p>Noisyness</p>
@@ -199,7 +200,7 @@ const ThirdQuestion = (props) => {
 
                             })
                             setNoisyness(1);
-                        }} className={noisetoggle.oneStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '} >1</button>
+                        }} className={noisetoggle.oneStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-black border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '} >1</button>
                         <button onClick={() => {
                             setNoisetoggle({
 
@@ -211,7 +212,7 @@ const ThirdQuestion = (props) => {
 
                             })
                             setNoisyness(2);
-                        }} className={noisetoggle.twoStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>2</button>
+                        }} className={noisetoggle.twoStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-black border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>2</button>
                         <button onClick={() => {
                             setNoisetoggle({
 
@@ -223,7 +224,7 @@ const ThirdQuestion = (props) => {
 
                             })
                             setNoisyness(3);
-                        }} className={noisetoggle.threeStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>3</button>
+                        }} className={noisetoggle.threeStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-black border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>3</button>
                         <button onClick={() => {
                             setNoisetoggle({
 
@@ -235,7 +236,7 @@ const ThirdQuestion = (props) => {
 
                             })
                             setNoisyness(4);
-                        }} className={noisetoggle.fourStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>4</button>
+                        }} className={noisetoggle.fourStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-black border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>4</button>
 
                         <button onClick={() => {
                             setNoisetoggle({
@@ -248,7 +249,7 @@ const ThirdQuestion = (props) => {
 
                             })
                             setNoisyness(5);
-                        }} className={noisetoggle.fiveStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>5</button>
+                        }} className={noisetoggle.fiveStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-black border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>5</button>
                     </div>
 
                     <p>Timeliness</p>
@@ -264,7 +265,7 @@ const ThirdQuestion = (props) => {
 
                             })
                             setTimeliness(1);
-                        }} className={timetoggle.oneStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>1</button>
+                        }} className={timetoggle.oneStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-black border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>1</button>
                         <button onClick={() => {
                             setTimetoggle({
 
@@ -276,7 +277,7 @@ const ThirdQuestion = (props) => {
 
                             })
                             setTimeliness(2);
-                        }} className={timetoggle.twoStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>2</button>
+                        }} className={timetoggle.twoStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-black border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>2</button>
                         <button onClick={() => {
                             setTimetoggle({
 
@@ -288,7 +289,7 @@ const ThirdQuestion = (props) => {
 
                             })
                             setTimeliness(3);
-                        }} className={timetoggle.threeStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>3</button>
+                        }} className={timetoggle.threeStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-black border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>3</button>
                         <button onClick={() => {
                             setTimetoggle({
 
@@ -300,7 +301,7 @@ const ThirdQuestion = (props) => {
 
                             })
                             setTimeliness(4);
-                        }} className={timetoggle.fourStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>4</button>
+                        }} className={timetoggle.fourStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-black border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>4</button>
                         <button onClick={() => {
                             setTimetoggle({
 
@@ -312,7 +313,7 @@ const ThirdQuestion = (props) => {
 
                             })
                             setTimeliness(5);
-                        }} className={timetoggle.fiveStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>5</button>
+                        }} className={timetoggle.fiveStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-black border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>5</button>
                     </div>
                     <p>Organized</p>
                     <div className='flex'>
@@ -327,7 +328,7 @@ const ThirdQuestion = (props) => {
 
                             })
                             setOrganized(1);
-                        }} className={organizetoggle.oneStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>1</button>
+                        }} className={organizetoggle.oneStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-black border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>1</button>
                         <button onClick={() => {
                             setOrganizetoggle({
 
@@ -339,7 +340,7 @@ const ThirdQuestion = (props) => {
 
                             })
                             setOrganized(2);
-                        }} className={organizetoggle.twoStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>2</button>
+                        }} className={organizetoggle.twoStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-black border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>2</button>
                         <button onClick={() => {
                             setOrganizetoggle({
 
@@ -351,7 +352,7 @@ const ThirdQuestion = (props) => {
 
                             })
                             setOrganized(3);
-                        }} className={organizetoggle.threeStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>3</button>
+                        }} className={organizetoggle.threeStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-black border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>3</button>
                         <button onClick={() => {
                             setOrganizetoggle({
 
@@ -363,7 +364,7 @@ const ThirdQuestion = (props) => {
 
                             })
                             setOrganized(4);
-                        }} className={organizetoggle.fourStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>4</button>
+                        }} className={organizetoggle.fourStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-black border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>4</button>
                         <button onClick={() => {
                             setOrganizetoggle({
 
@@ -375,7 +376,7 @@ const ThirdQuestion = (props) => {
 
                             })
                             setOrganized(5);
-                        }} className={organizetoggle.fiveStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>5</button>
+                        }} className={organizetoggle.fiveStar ? 'bg-[#1C3879] border-solid border-2 p-4 pr-6 w-4 text-center' : 'border-solid border-black border-2 p-4 pr-6 w-4 text-center cursor-pointer hover:bg-[#3282B8] '}>5</button>
                     </div>
 
                 </div>
@@ -387,7 +388,7 @@ const ThirdQuestion = (props) => {
 
             </div>
             <div className='mt-10'>
-                <img src={roomie} alt='/' className='h-[30vh] w-[78vw] rounded-[75px] alone mt-3 md:h-[60vh] md:w-[85%] mx-auto ' />
+                <img src={roomie} alt='/' className='h-[30vh] w-[78vw] rounded-[75px] mt-3 md:h-[60vh] md:w-[85%] mx-auto ' />
             </div>
             <div className='flex justify-between mt-10  md:hidden'>
                 <button className='bg-[#3282B8]  p-4 rounded-md text-black font-bold w-40' onClick={handlePrev}>Previous</button>
@@ -396,7 +397,7 @@ const ThirdQuestion = (props) => {
 
 
 
-        </div>
+        </div >
     );
 }
 
