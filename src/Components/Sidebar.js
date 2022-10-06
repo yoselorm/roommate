@@ -1,9 +1,12 @@
 import React from 'react';
+import Search from './Search';
+import UserChats from './UserChats';
 
 const Sidebar = () => {
     return (
-        <div>
-            Sidebar
+        <div className='flex-1'>
+            <Search />
+            <UserChats />
         </div>
     );
 }

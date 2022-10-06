@@ -1,6 +1,6 @@
 import Hero from "./Components/Hero";
 import Navbar from "./Components/Navbar";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import Home from "./Pages/Home";
 import FirstPage from "./Pages/FirstPage";
 import SecondPage from "./Pages/SecondPage";
@@ -18,10 +18,21 @@ import UserDetails from "./Pages/UserDetails";
 import Result from "./Components/Result";
 import Profile from "./Components/Profile";
 import ChatPage from "./Pages/ChatPage";
+import { useContext } from "react";
+import { AuthContext } from "./context/AuthContext";
 
 
 function App() {
   const location = useLocation();
+  const { currentUser } = useContext(AuthContext)
+
+  const ProtectedRoute = ({ children }) => {
+    if (!currentUser) {
+      return <Navigate to="/" />
+    }
+    return children
+  }
+
   return (
     <div className=" font-semibold">
 
@@ -29,7 +40,9 @@ function App() {
       <AnimatePresence exitBeforeEnter>
         <Routes key={location.pathname} location={location}>
           <Route path="/" element={<LoginPage />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/home" element={<ProtectedRoute>
+            <Home />
+          </ProtectedRoute>} />
           <Route path="/profilepage" element={<ProfilePage />} />
           <Route path="/firstpage" element={<FirstPage />} />
           <Route path="/secondpage" element={<SecondPage />} />

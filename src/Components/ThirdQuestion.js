@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ratingImage from '../assets/ratings.png';
 import roomie from '../assets/roomie.png';
 import { connect, useSelector, useDispatch } from "react-redux";
 import { addQuestion, addUser } from '../Redux/Action';
 import { v4 as uuidv4 } from 'uuid';
-import { getFirestore, doc, setDoc } from "firebase/firestore";
+import { getFirestore, doc, setDoc, updateDoc } from "firebase/firestore";
 import app from '../Firebase/Config';
+import { AuthContext } from '../context/AuthContext';
 
 const ThirdQuestion = (props) => {
     const navigate = useNavigate();
@@ -17,7 +18,8 @@ const ThirdQuestion = (props) => {
     console.log(storedResults)
 
     //console.log(props)
-
+    const { currentUser } = useContext(AuthContext)
+    console.log(currentUser)
 
     const [cleanliness, setCleanliness] = useState();
     const [cleantoggle, setCleantoggle] = useState(
@@ -73,10 +75,10 @@ const ThirdQuestion = (props) => {
         e.preventDefault();
         navigate('/secondpage');
     }
+    const result = (cleanliness + noisyness + timeliness + organized) / 5;
 
     const handleDone = async (e) => {
         e.preventDefault();
-        const result = (cleanliness + noisyness + timeliness + organized) / 5;
         if (result < 2.5) {
             avgspecs = 'Good'
         }
@@ -86,29 +88,36 @@ const ThirdQuestion = (props) => {
 
         dispatch(addQuestion({ Preferred_specs: avgspecs }));
 
-        const newPerson = {
-            fullname: storedloc[0].fullname,
-            image: storedloc[0].image,
-            email: storedloc[0].email,
-            age: storedloc[0].age,
-            occupation: storedloc[0].occupation,
-            gender: storedloc[0].gender,
-            info: storedloc[0].info,
-            location: storedloc[1].location,
-            Personal_specs: storedloc[2].Personal_specs,
-            Preferred_specs: avgspecs,
-            id: uuidv4()
+        // const newPerson = {
+        //     fullname: storedloc[0].fullname,
+        //     image: storedloc[0].image,
+        //     email: currentUser.email,
+        //     age: storedloc[0].age,
+        //     occupation: storedloc[0].occupation,
+        //     gender: storedloc[0].gender,
+        //     info: storedloc[0].info,
+        //     location: storedloc[1].location,
+        //     Personal_specs: storedloc[2].Personal_specs,
+        //     Preferred_specs: avgspecs,
+        //     id: currentUser.uid
 
-        }
+        // }
 
-
-        dispatch(addQuestion(newPerson))
+        // dispatch(addQuestion(newPerson))
+        // try {
+        //     await setDoc(doc(db, "UserInfo", newPerson.email), newPerson);
+        // } catch (error) {
+        //     console.log(error)
+        // }
         try {
-            await setDoc(doc(db, "UserInfo", newPerson.email), newPerson);
+
+            await updateDoc(doc(db, "UserInfo", currentUser.email), { Preferred_specs: avgspecs, });
+
+
         } catch (error) {
             console.log(error)
         }
-        //console.log(newPerson)
+
         navigate('/userdetails');
 
     }

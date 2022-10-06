@@ -6,19 +6,21 @@ import { addDetails, addProfile, authUser } from '../Redux/Action';
 import { useDispatch } from 'react-redux';
 import { AiOutlineEyeInvisible } from 'react-icons/ai';
 import { MdOutlineVisibility } from 'react-icons/md';
+import { doc, setDoc } from 'firebase/firestore';
+import { db } from '../Firebase/Config';
 
 
 
 
 const Login = (props) => {
     console.log()
-    const [email, setEmail] = useState('yoselorm@gmail.com');
-    const [password, setPassword] = useState('123456');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [toggle, setToggle] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const auth = getAuth();
-    const [loader, setLoader] = useState(false)
+    const [err, setErr] = useState(false)
 
     const handleVisibility = (e) => {
         e.preventDefault();
@@ -29,16 +31,15 @@ const Login = (props) => {
         e.preventDefault();
         navigate('/profilepage')
     }
-    const user_email = email;
-    dispatch(addDetails(user_email))
+
 
     const handleLogin = async (e) => {
         e.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                console.log('signed in')
                 // Signed in 
                 const user = userCredential.user;
+                console.log('signed in')
                 // ...
                 navigate('/home', { replace: true })
 
@@ -47,9 +48,11 @@ const Login = (props) => {
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
+                setErr(true)
             });
-
     }
+    const user_email = email;
+    dispatch(addDetails(user_email))
 
 
 
@@ -61,6 +64,7 @@ const Login = (props) => {
                 <form className='flex flex-col justify-center mt-10 sm:flex sm:max-w-[80%] sm:flex-col bg-[#413F42] p-6 sm:pl-16 rounded-2xl'>
                     <h1 className='font-bold text-3xl mb-8  '>Login</h1>
                     <p className='font-semibold text-xl text-gray-400'>Please sign in to continue</p>
+                    {err && <span className='text-[#FF577F]'>Invalid email or password</span>}
                     <label>Email</label>
                     <input value={email} onChange={(e) => { setEmail(e.target.value) }} type='text' className='mt-2 bg-transparent border-b-[1px] sm:w-[80%] w-[100%]  focus:outline-none mb-16 sm:mb-10 p-2'></input>
                     <label>Password</label>

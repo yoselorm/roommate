@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ratingImage from '../assets/ratings.png';
 import { addQuestion } from '../Redux/Action';
 import { connect, useSelector, useDispatch } from "react-redux";
+import { doc, updateDoc } from 'firebase/firestore';
+import { db } from '../Firebase/Config';
+import { AuthContext } from '../context/AuthContext';
 
 
 
 const SecondQuestion = (props) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const { currentUser } = useContext(AuthContext)
 
     const storedResults = useSelector((state) => state.question);
     console.log(storedResults)
@@ -65,7 +69,7 @@ const SecondQuestion = (props) => {
         e.preventDefault();
         navigate('/firstpage');
     }
-    const handleNext = (e) => {
+    const handleNext = async (e) => {
         e.preventDefault();
         const result = (cleanliness + noisyness + timeliness + organized) / 5;
         if (result < 2.5) {
@@ -74,7 +78,14 @@ const SecondQuestion = (props) => {
         else {
             avgspecs = 'Better'
         }
+        try {
 
+            await updateDoc(doc(db, "UserInfo", currentUser.email), { Personal_specs: avgspecs });
+
+
+        } catch (error) {
+            console.log(error)
+        }
         console.log(avgspecs)
         dispatch(addQuestion({ Personal_specs: avgspecs }))
         navigate('/thirdpage');

@@ -6,18 +6,25 @@ import { BrowserRouter } from 'react-router-dom';
 import { legacy_createStore as createStore } from 'redux';
 import { Provider } from 'react-redux';
 import profileReducer from './Redux/Reducer';
+import { AuthContextProvider } from './context/AuthContext';
+import { ChatContextProvider } from './context/ChatContext';
 
 const store = createStore(profileReducer);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </BrowserRouter>
-  </React.StrictMode>
+  <AuthContextProvider>
+    <ChatContextProvider>
+      <React.StrictMode>
+        <BrowserRouter>
+          <Provider store={store}>
+            <App />
+          </Provider>
+        </BrowserRouter>
+      </React.StrictMode>
+    </ChatContextProvider>
+  </AuthContextProvider>
+
 );
 
 

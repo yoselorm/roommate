@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useEffect } from 'react';
 import { connect, useSelector, useDispatch } from 'react-redux';
 import { addQuestion, addUser } from '../Redux/Action';
 import Result from '../Components/Result';
-import { collection, query, where, onSnapshot, getFirestore } from "firebase/firestore";
+import { collection, query, where, onSnapshot, getFirestore, doc } from "firebase/firestore";
 import app from '../Firebase/Config';
 import AnimateComp from '../Components/AnimateComp';
 import Navbar from '../Components/Navbar';
+import { AuthContext } from '../context/AuthContext';
 
 const UserDetails = (props) => {
 
@@ -18,6 +19,10 @@ const UserDetails = (props) => {
     console.log(storedloc)
     //let result = storedloc.map(item => item.location);
     let loc = storedloc.find(item => item.location);
+    const [user, setUser] = useState();
+
+
+
 
 
 
@@ -33,6 +38,7 @@ const UserDetails = (props) => {
                     querySnapshot.forEach((doc) => {
                         users.push(doc.data());
                     });
+                    setUser(users)
                     console.log(users)
                     //console.log("Current cities in CA: ", cities.join(", "));
                     dispatch(addUser(users));
@@ -45,6 +51,7 @@ const UserDetails = (props) => {
         }
         getData();
     }, [])
+    console.log(user)
 
 
 

@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import locationImage from '../assets/location.gif';
 import { useNavigate } from 'react-router-dom';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import { addQuestion } from '../Redux/Action';
 import { connect, useSelector, useDispatch } from "react-redux";
+import { collection, doc, onSnapshot, query, updateDoc, where } from 'firebase/firestore';
+import { AuthContext } from '../context/AuthContext';
+import { db } from '../Firebase/Config';
 
 
 const FirstQuestion = (props) => {
@@ -11,13 +14,22 @@ const FirstQuestion = (props) => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const { currentUser } = useContext(AuthContext)
 
 
-    const handleToSecondPage = (e) => {
+
+    const handleToSecondPage = async (e) => {
         e.preventDefault();
         //const firstAns = location;
         navigate('/secondpage');
+        try {
+            await updateDoc(doc(db, "profile", currentUser.email), { location: location });
+            await updateDoc(doc(db, "UserInfo", currentUser.email), { location: location });
 
+
+        } catch (error) {
+            console.log(error)
+        }
         dispatch(addQuestion({ location: location }));
     }
 
@@ -25,6 +37,7 @@ const FirstQuestion = (props) => {
         e.preventDefault();
         navigate('/home')
     }
+
 
 
     return (
