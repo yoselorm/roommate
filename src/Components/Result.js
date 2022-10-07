@@ -60,13 +60,13 @@ const Result = (props) => {
                     <img src={props.user.image} alt='' className='h-20 w-20 rounded-[50%]' />
                     <button onClick={handleSelect} className='px-2 w-20 h-10 rounded-lg hover:text-black hover:bg-white text-white bg-[#3282B8]'>Add</button>
                 </div>
-                <h1>{props.user.fullname}</h1>
-                <h1>{props.user.email}</h1>
-                <h1>{props.user.location}</h1>
-                <h1>{props.user.occupation}</h1>
-                <h1>{props.user.age}</h1>
-                <h1>{props.user.gender}</h1>
-                <h1>{props.user.info}</h1>
+                <h1 className='text-lg'><span className='text-slate-600 text-lg'>Name: </span>{props.user.fullname}</h1>
+                <h1 className='text-lg'><span className='text-slate-600 text-lg'>Email: </span>{props.user.email}</h1>
+                <h1 className='text-lg'><span className='text-slate-600 text-lg'>Location: </span>{props.user.location}</h1>
+                <h1 className='text-lg'><span className='text-slate-600 text-lg'>Occupation: </span>{props.user.occupation}</h1>
+                <h1 className='text-lg'><span className='text-slate-600 text-lg'>Age: </span>{props.user.age}</h1>
+                <h1 className='text-lg'><span className='text-slate-600 text-lg'>Gender: </span>{props.user.gender}</h1>
+                <h1 className='text-lg'><span className='text-slate-600 text-lg'>Brief Info: </span>{props.user.info}</h1>
             </section>
 
         </section>

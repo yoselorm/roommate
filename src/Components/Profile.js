@@ -55,7 +55,7 @@ const Profile = (props) => {
 
 
     const auth = getAuth();
-    const users = auth.currentUser;
+    const user = auth.currentUser;
 
 
 
@@ -72,9 +72,13 @@ const Profile = (props) => {
         setDeleteModal(!deletemodal)
     }
 
+    const handleClose = (e) => {
+        setEditModal(false)
+    }
+
     const handleDelete = (e) => {
         e.preventDefault();
-        deleteUser(users).then(() => {
+        deleteUser(user).then(() => {
             // User deleted.
             navigate('/', { replace: true })
         }).catch((error) => {
@@ -104,10 +108,10 @@ const Profile = (props) => {
                         </div>
 
                         <div className={editmodal ? 'text-black text-md font-semibold w-[300px] max-h-fit sm:w-[550px] sm:max-h-fit border-2 p-4 sm:my-4 alone border-slate-600 bg-[#fff] opacity-80  rounded-md mx-auto flex flex-col' : ' hidden'}>
-                            <EditModal item={item} />
-                            <button className='hover:bg-black text-[#000] bg-[#3282B8] hover:text-white md:w-[20%] p-2 rounded-md font-bold' onClick={() => { setEditModal(false) }}>Cancel</button>
+                            <EditModal item={item} close={handleClose} />
+                            <button className='hover:bg-black text-[#000] bg-[#3282B8] hover:text-white md:w-[20%] p-2 rounded-md font-bold' onClick={handleClose}>Cancel</button>
                         </div>
-                        <div className={deletemodal ? 'text-black text-md font-semibold w-[300px] h-[20vh] sm:w-[350px] sm:h-[20vh] border-2 p-4 sm:my-4 alone border-slate-600 bg-[#fff] opacity-80  rounded-md mx-auto flex flex-col' : ' hidden'}>
+                        <div className={deletemodal ? 'text-black text-md font-semibold w-[300px] h-[20vh] sm:w-[350px] sm:h-[20vh] border-2 p-4 sm:my-4 alone border-slate-600 bg-[#fff] opacity-80  rounded-md mx-auto flex flex-col ' : ' hidden'}>
                             <h1 className='text-center '>Are you sure you want to delete account</h1>
                             <div className='flex gap-6 justify-center items-center'>
                                 <button className='hover:bg-black text-[#000] bg-[#3282B8] hover:text-white md:w-[20%] p-2 rounded-md font-bold' onClick={(e) => { setDeleteModal(false) }}>Cancel</button>
