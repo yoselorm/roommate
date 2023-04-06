@@ -4,16 +4,16 @@ import FirstQuestion from '../Components/FirstQuestion';
 import Navbar from '../Components/Navbar';
 const FirstPage = () => {
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        const country_loc = () => {
-            fetch("https://universities-in-ghana.herokuapp.com/universities")
-                .then(response => response.text())
-                .then(result => console.log(result))
-                .catch(error => console.log('error', error));
-        }
-        country_loc();
-    }, [])
+    //     const country_loc = () => {
+    //         fetch("https://universities-in-ghana.herokuapp.com/universities")
+    //             .then(response => response.text())
+    //             .then(result => console.log(result))
+    //             .catch(error => console.log('error', error));
+    //     }
+    //     country_loc();
+    // }, [])
 
 
 

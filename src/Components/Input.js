@@ -71,6 +71,12 @@ const Input = () => {
     return (
         <div className='text-black h-10 absolute top-[755px]  flex items-center '>
             <input className='border-2 p-2 rounded-xl h-[8vh] border-slate-600 w-[40vw] mr-6' type='text' onChange={(e) => { setText(e.target.value) }} value={text} />
+
+            {/* <input
+                type="file"
+                id="file"
+                onChange={(e) => setImg(e.target.files[0])}
+            /> */}
             <div>
                 <button className='sm:p-2 bg-slate-500  text-md rounded-2xl w-[100px] hover:bg-[#ADDDD0]' onClick={handleSend}>Send</button>
             </div>

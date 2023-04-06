@@ -92,7 +92,7 @@ const Profile = (props) => {
             {profile.map((item) => {
                 return (
                     <div key={item.id} className={'flex flex-col justify-center  mt-[100px]'}>
-                        <div className={deletemodal || editmodal ? 'hidden' : 'text-black text-md font-semibold w-[300px] h-[40vh] max-h-fit sm:w-[350px] sm:h-[60vh] border-2 p-4 sm:my-4 alone border-slate-600 bg-[#fff] opacity-80  rounded-md mx-auto flex flex-col'}>
+                        <div className={deletemodal || editmodal ? 'hidden' : 'text-black text-md font-semibold w-[300px] h-[50vh] max-h-fit sm:w-[350px] sm:h-[60vh] border-2 p-4 sm:my-4 alone border-slate-600 bg-[#fff] opacity-80  rounded-md mx-auto flex flex-col'}>
                             <img src={item.image} alt='' className=' sm:h-[15vh] sm:w-[8vw] h-28 w-28 rounded-[50%] relative bottom-16 mx-auto' />
                             <h1 className='sm:mb-2  '><span className='text-slate-600'>Name:</span>  {item.fullname}</h1>
                             <h1 className='sm:mb-2  '><span className='text-slate-600'>Email:</span>  {item.email}</h1>
