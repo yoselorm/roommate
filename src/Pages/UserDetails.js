@@ -41,8 +41,6 @@ const UserDetails = (props) => {
 
             try {
                 const q = query(collection(db, "UserInfo"), where("location", "==", userlocation.location));
-
-
                 onSnapshot(q, (querySnapshot) => {
                     const users = [];
                     querySnapshot.forEach((doc) => {
@@ -73,18 +71,21 @@ const UserDetails = (props) => {
     return (
         <div >
             <Navbar />
-            <div className=' sm:grid sm:grid-cols-3'>
 
+            <div className={user !== undefined ? ' sm:grid sm:grid-cols-3' : 'hidden'}>
                 {storedResults?.map((item) => {
                     return (
                         <div key={item.id} >
-
                             <AnimateComp>
                                 <Result user={item} />
                             </AnimateComp>
                         </div>
                     )
                 })}
+
+            </div>
+            <div className={user == undefined ? 'flex' : 'hidden'}>
+                <h1 className='mx-auto mt-10 font-extrabold text-3xl'>No Matches Found,‼Get Started</h1>
             </div>
 
         </div>
