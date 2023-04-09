@@ -78,7 +78,7 @@ const UserDetails = (props) => {
         <div >
             <Navbar />
 
-            <div className={user !== undefined ? ' sm:grid sm:grid-cols-3' : 'hidden'}>
+            <div className={user !== undefined || storedResults.length !== 0 ? ' sm:grid sm:grid-cols-3' : 'hidden'}>
                 {storedResults?.map((item) => {
                     return (
                         <div key={item.id} >
@@ -90,7 +90,7 @@ const UserDetails = (props) => {
                 })}
 
             </div>
-            <div className={user === undefined ? 'flex' : 'hidden'}>
+            <div className={user === undefined || storedResults.length == 0 ? 'flex' : 'hidden'}>
                 <h1 className='mx-auto mt-10 font-extrabold text-3xl'>No Matches Found,‼Get Started</h1>
             </div>
 
