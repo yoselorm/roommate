@@ -73,7 +73,7 @@ const Profile = (props) => {
     }
 
     const handleClose = (e) => {
-        setEditModal(false)
+        setEditModal(!editmodal)
     }
 
     const handleDelete = (e) => {
@@ -89,7 +89,7 @@ const Profile = (props) => {
     return (
         <div className=''>
             <Navbar />
-            {profile.map((item) => {
+            {profile?.map((item) => {
                 return (
                     <div key={item.id} className={'flex flex-col justify-center  mt-[100px]'}>
                         <div className={deletemodal || editmodal ? 'hidden' : 'text-black text-md font-semibold w-[300px] h-[50vh] max-h-fit sm:w-[350px] sm:h-[60vh] border-2 p-4 sm:my-4 alone border-slate-600 bg-[#fff] opacity-80  rounded-md mx-auto flex flex-col'}>
@@ -108,8 +108,8 @@ const Profile = (props) => {
                         </div>
 
                         <div className={editmodal ? 'text-black text-md font-semibold w-[300px] max-h-fit sm:w-[550px] sm:max-h-fit border-2 p-4 sm:my-4 alone border-slate-600 bg-[#fff] opacity-80  rounded-md mx-auto flex flex-col' : ' hidden'}>
-                            <EditModal item={item} close={handleClose} />
-                            <button className='hover:bg-black text-[#000] bg-[#3282B8] hover:text-white md:w-[20%] p-2 rounded-md font-bold' onClick={handleClose}>Cancel</button>
+                            <EditModal item={item} close={handleClose} editmodal={editmodal} />
+                            <button className='hover:bg-black text-[#000] bg-[#3282B8] hover:text-white md:w-[20%] p-2 rounded-md font-bold' onClick={handleClose} >Cancel</button>
                         </div>
                         <div className={deletemodal ? 'text-black text-md font-semibold w-[300px] h-[20vh] sm:w-[350px] sm:h-[20vh] border-2 p-4 sm:my-4 alone border-slate-600 bg-[#fff] opacity-80  rounded-md mx-auto flex flex-col ' : ' hidden'}>
                             <h1 className='text-center '>Are you sure you want to delete account</h1>

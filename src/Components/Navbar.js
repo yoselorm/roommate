@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion'
 import { getAuth, signOut } from "firebase/auth";
 import { FaUserCog } from 'react-icons/fa';
@@ -13,6 +13,8 @@ const Navbar = () => {
     const navigate = useNavigate();
     const auth = getAuth();
     const dispatch = useDispatch();
+    const location = useLocation();
+
 
     const handleNav = () => {
         setNav(!nav)
@@ -74,6 +76,9 @@ const Navbar = () => {
             // Sign-out successful.
             navigate('/', { replace: true })
             dispatch(authUser(true))
+            window.history.replaceState(null, '', '/');
+
+
         }).catch((error) => {
             // An error happened.
         });

@@ -65,9 +65,9 @@ const ThirdQuestion = (props) => {
     );
 
     const storedloc = useSelector((state) => state.question);
-    console.log(storedloc)
 
-    console.log(storedloc[0].email);
+
+
 
 
     let avgspecs = '';

@@ -24,7 +24,10 @@ const EditModal = (props) => {
 
     const navigate = useNavigate()
 
-
+    const handleModalClose = (e) => {
+        e.preventDefault()
+        navigate('/profile')
+    }
 
 
     const handleUpdate = async (e) => {
@@ -64,15 +67,16 @@ const EditModal = (props) => {
 
         }
     }
-    const close = props.close
+
     const handleClose = (e) => {
         //navigate('/profile')
-        setConfirm(!confirm) && close(true)
+        setConfirm(!confirm)
+        props.close(!props.editmodal)
     }
     console.log(currentUser)
     return (
         <div >
-            <div className={!confirm ? 'hidden' : 'flex'}>
+            <div className={confirm ? 'hidden' : 'flex'}>
                 <form className='md:grid flex flex-col max-h-fit'>
                     <label className='font-bold'>Full name: </label>
                     <input type='text' placeholder='Enter Full name' className='bg-transparent border-b-2 border-black focus:outline-none  mb-5 md:mb-5' value={fullname} onChange={(e) => { setFullname(e.target.value) }} />
@@ -97,7 +101,7 @@ const EditModal = (props) => {
                 </form>
             </div>
 
-            <div className={!confirm ? 'flex' : 'hidden'}>
+            <div className={confirm ? 'flex' : 'hidden'}>
                 <div className=' text-black text-md font-semibold w-[300px] h-[20vh] sm:w-[350px] sm:h-[20vh] p-4 sm:my-4 alone opacity-80  rounded-md mx-auto flex flex-col'>
                     <h1 className='text-center '>Update Done</h1>
                     <div className='flex gap-6 justify-center items-center mt-4'>

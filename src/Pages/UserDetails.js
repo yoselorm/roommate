@@ -16,12 +16,20 @@ const UserDetails = (props) => {
     const db = getFirestore(app);
 
     const storedloc = useSelector((state) => state.question);
-    console.log(storedloc)
+    //console.log(storedloc[0])
     //let result = storedloc.map(item => item.location);
-    let loc = storedloc.find(item => item.location);
+
+
+    //let loc = storedloc.find(item => item.location);
     const [user, setUser] = useState();
 
-
+    let userlocation = null;
+    for (let i = 0; i < storedloc?.length; i++) {
+        if (storedloc[i].location) {
+            userlocation = storedloc[i];
+        }
+    }
+    console.log(userlocation)
 
 
 
@@ -32,7 +40,9 @@ const UserDetails = (props) => {
         const getData = async () => {
 
             try {
-                const q = query(collection(db, "UserInfo"), where("location", "==", loc.location));
+                const q = query(collection(db, "UserInfo"), where("location", "==", userlocation.location));
+
+
                 onSnapshot(q, (querySnapshot) => {
                     const users = [];
                     querySnapshot.forEach((doc) => {
@@ -65,7 +75,7 @@ const UserDetails = (props) => {
             <Navbar />
             <div className=' sm:grid sm:grid-cols-3'>
 
-                {storedResults.map((item) => {
+                {storedResults?.map((item) => {
                     return (
                         <div key={item.id} >
 

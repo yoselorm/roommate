@@ -1,6 +1,6 @@
 import Hero from "./Components/Hero";
 import Navbar from "./Components/Navbar";
-import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Home from "./Pages/Home";
 import FirstPage from "./Pages/FirstPage";
 import SecondPage from "./Pages/SecondPage";
@@ -24,11 +24,12 @@ import { AuthContext } from "./context/AuthContext";
 
 function App() {
   const location = useLocation();
+  const navigate = useNavigate()
   const { currentUser } = useContext(AuthContext)
 
   const ProtectedRoute = ({ children }) => {
     if (!currentUser) {
-      return <Navigate to="/" />
+      return navigate('/', { replace: true })
     }
     return children
   }
