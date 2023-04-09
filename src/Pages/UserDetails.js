@@ -14,9 +14,11 @@ const UserDetails = (props) => {
 
     const dispatch = useDispatch();
     const db = getFirestore(app);
+    const { currentUser } = useContext(AuthContext)
+    console.log(currentUser.uid)
 
     const storedloc = useSelector((state) => state.question);
-    //console.log(storedloc[0])
+    console.log(storedloc)
     //let result = storedloc.map(item => item.location);
 
 
@@ -24,12 +26,14 @@ const UserDetails = (props) => {
     const [user, setUser] = useState();
 
     let userlocation = null;
+    let details = null
     for (let i = 0; i < storedloc?.length; i++) {
         if (storedloc[i].location) {
             userlocation = storedloc[i];
         }
     }
-    console.log(userlocation)
+
+
 
 
 
@@ -44,7 +48,10 @@ const UserDetails = (props) => {
                 onSnapshot(q, (querySnapshot) => {
                     const users = [];
                     querySnapshot.forEach((doc) => {
-                        users.push(doc.data());
+                        console.log(doc)
+                        if (doc.id !== currentUser.email) {
+                            users.push(doc.data());
+                        }
                     });
                     setUser(users)
                     console.log(users)
@@ -58,7 +65,7 @@ const UserDetails = (props) => {
             }
         }
         getData();
-    }, [])
+    }, [db, dispatch, userlocation.location])
     console.log(user)
 
 
@@ -84,7 +91,7 @@ const UserDetails = (props) => {
                 })}
 
             </div>
-            <div className={user == undefined ? 'flex' : 'hidden'}>
+            <div className={user === undefined ? 'flex' : 'hidden'}>
                 <h1 className='mx-auto mt-10 font-extrabold text-3xl'>No Matches Found,‼Get Started</h1>
             </div>
 
