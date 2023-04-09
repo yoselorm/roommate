@@ -15,7 +15,7 @@ const UserDetails = (props) => {
     const dispatch = useDispatch();
     const db = getFirestore(app);
     const { currentUser } = useContext(AuthContext)
-    console.log(currentUser.uid)
+
 
     const storedloc = useSelector((state) => state.question);
     console.log(storedloc)
@@ -26,7 +26,6 @@ const UserDetails = (props) => {
     const [user, setUser] = useState();
 
     let userlocation = null;
-    let details = null
     for (let i = 0; i < storedloc?.length; i++) {
         if (storedloc[i].location) {
             userlocation = storedloc[i];
@@ -44,7 +43,7 @@ const UserDetails = (props) => {
         const getData = async () => {
 
             try {
-                const q = query(collection(db, "UserInfo"), where("location", "==", userlocation.location));
+                const q = query(collection(db, "UserInfo"), where("location", "==", userlocation?.location));
                 onSnapshot(q, (querySnapshot) => {
                     const users = [];
                     querySnapshot.forEach((doc) => {
@@ -65,7 +64,7 @@ const UserDetails = (props) => {
             }
         }
         getData();
-    }, [db, dispatch, userlocation.location])
+    }, [db, dispatch, userlocation?.location, currentUser?.email])
     console.log(user)
 
 
