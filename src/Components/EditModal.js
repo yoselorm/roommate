@@ -63,6 +63,7 @@ const EditModal = (props) => {
             });
 
             setConfirm(!confirm)
+
         } catch (error) {
 
         }

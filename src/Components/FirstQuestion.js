@@ -47,8 +47,8 @@ const FirstQuestion = (props) => {
                 <p className='text-black font-bold md:mt-[6rem]  md:text-4xl md:ml-2'>What part of Ghana are you looking for a roomate?</p>
                 <input type='text' className='mt-24 bg-transparent border-slate-900 border-b-[1px] md:w-[80%] w-[100%] md:mb-20 focus:outline-none' value={location} onChange={(e) => { setLocation(e.target.value) }} placeholder='Type here' />
                 <div className=' justify-between mt-10 mb-10 hidden md:flex'>
-                    <button className='bg-[#3282B8]  p-4 rounded-md text-black font-bold w-40 hover:bg-white' onClick={handlePrev}>Previous</button>
-                    <button className='bg-[#3282B8]  p-4 rounded-md text-black font-bold w-40 hover:bg-white' onClick={handleToSecondPage}>Next</button>
+                    <button className='bg-[#3282B8]  p-4 rounded-md text-black font-bold w-40 hover:bg-slate-500' onClick={handlePrev}>Previous</button>
+                    <button className='bg-[#3282B8]  p-4 rounded-md text-black font-bold w-40 hover:bg-slate-500' onClick={handleToSecondPage}>Next</button>
                 </div>
 
             </div>
@@ -56,8 +56,8 @@ const FirstQuestion = (props) => {
                 <img src={locationImage} alt='/' className='h-[35vh] w-[78vw] logo md:mt-1 mt-3 md:h-[60vh] md:w-[85%] mx-auto ' />
             </div>
             <div className='flex md:hidden justify-between mt-10 mb-10 md:mb-3 ]'>
-                <button className='bg-[#3282B8]  p-4 rounded-md text-black font-bold w-40 hover:bg-white' onClick={handlePrev}>Previous</button>
-                <button className='bg-[#3282B8] md:hidden p-4 rounded-md text-black font-bold w-40 hover:bg-white' onClick={handleToSecondPage}>Next</button>
+                <button className='bg-[#3282B8]  p-4 rounded-md text-black font-bold max-w-[100px] hover:bg-white' onClick={handlePrev}>Previous</button>
+                <button className='bg-[#3282B8] md:hidden p-4 rounded-md text-black font-bold w-[100px] hover:bg-white' onClick={handleToSecondPage}>Next</button>
             </div>
 
 

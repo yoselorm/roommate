@@ -19,10 +19,7 @@ const UserDetails = (props) => {
 
     const storedloc = useSelector((state) => state.question);
     console.log(storedloc)
-    //let result = storedloc.map(item => item.location);
 
-
-    //let loc = storedloc.find(item => item.location);
     const [user, setUser] = useState();
 
     let userlocation = null;
@@ -78,7 +75,7 @@ const UserDetails = (props) => {
         <div >
             <Navbar />
 
-            <div className={user !== undefined || storedResults.length !== 0 ? ' sm:grid sm:grid-cols-3' : 'hidden'}>
+            <div className={user !== [] || storedResults?.length !== 0 ? ' sm:grid sm:grid-cols-3' : 'hidden'}>
                 {storedResults?.map((item) => {
                     return (
                         <div key={item.id} >
@@ -90,8 +87,8 @@ const UserDetails = (props) => {
                 })}
 
             </div>
-            <div className={user === undefined || storedResults.length == 0 ? 'flex' : 'hidden'}>
-                <h1 className='mx-auto mt-10 font-extrabold text-3xl'>No Matches Found,‼Get Started</h1>
+            <div className={user == [] || storedResults?.length == 0 ? 'flex' : 'hidden'}>
+                <h1 className='mx-auto mt-10 font-extrabold text-3xl p-4'>No Matches Found,‼Get Started</h1>
             </div>
 
         </div>

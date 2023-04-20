@@ -391,8 +391,8 @@ const ThirdQuestion = (props) => {
                 </div>
 
                 <div className='md:flex hidden justify-between mt-10 mb-10 ]'>
-                    <button className='bg-[#3282B8]  p-4 rounded-md text-black font-bold w-40 hover:bg-white' onClick={handlePrev}>Previous</button>
-                    <button className='bg-[#3282B8]  p-4 rounded-md text-black font-bold w-40 hover:bg-white' onClick={handleDone}>Done</button>
+                    <button className='bg-[#3282B8]  p-4 rounded-md text-black font-bold w-40 hover:bg-slate-500' onClick={handlePrev}>Previous</button>
+                    <button className='bg-[#3282B8]  p-4 rounded-md text-black font-bold w-40 hover:bg-slate-500' onClick={handleDone}>Done</button>
                 </div>
 
             </div>
@@ -400,8 +400,8 @@ const ThirdQuestion = (props) => {
                 <img src={roomie} alt='/' className='h-[30vh] w-[78vw] rounded-[75px] mt-3 md:h-[60vh] md:w-[85%] mx-auto ' />
             </div>
             <div className='flex justify-between mt-10  md:hidden'>
-                <button className='bg-[#3282B8]  p-4 rounded-md text-black font-bold w-40' onClick={handlePrev}>Previous</button>
-                <button className='bg-[#3282B8]  p-4 rounded-md text-black font-bold w-40' onClick={handleDone} >Done</button>
+                <button className='bg-[#3282B8]  p-4 rounded-md text-black font-bold w-[100px]' onClick={handlePrev}>Previous</button>
+                <button className='bg-[#3282B8]  p-4 rounded-md text-black font-bold w-[100px]' onClick={handleDone} >Done</button>
             </div>
 
 
