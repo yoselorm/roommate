@@ -93,7 +93,7 @@ const Navbar = () => {
                 <li onClick={toProfile} className='mx-4 text-xl font-semibold ml-3 hover:text-[#000000] cursor-pointer' ><FaUserCog size={35} /></li>
 
             </motion.ul>
-            <button className='text-white p-2 bg-slate-900 rounded-xl mx-2 font-semibold  hover:text-[#cc3131] cursor-pointer hidden sm:flex' onClick={handleLogout}>Logout</button>
+            <button className='text-black p-2 bg-slate-200 rounded-xl mx-2 font-semibold  hover:text-[#cc3131] cursor-pointer hidden sm:flex' onClick={handleLogout}>Logout</button>
             <div onClick={handleNav} className='md:hidden block'>
                 {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
             </div>
