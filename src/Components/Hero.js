@@ -45,7 +45,7 @@ const Hero = () => {
             <div className=' p-6 text-4xl '>
                 <p className='text-black font-bold md:pt-5  md:text-6xl md:ml-2'>Finding a <span className='text-[#3282B8]'>Roommate</span>, <br />Made easy</p>
                 <p className=' text-lg mt-8 md:ml-3'>Tell us what you're looking for and we'll help<br /> find and connect you with your perfect<br /> roommate. Just that simple</p>
-                <button onClick={handlePage} className='bg-[#3282B8] p-4 mt-10 px-10 max-w-[200px] rounded-[10px] text-xl font-semibold hidden md:flex text-black hover:bg-white'>Get Started</button>
+                <button onClick={handlePage} className='bg-[#3282B8] p-4 mt-10 px-10 max-w-[200px] rounded-[10px] text-xl font-semibold hidden md:flex text-black hover:bg-blue-200'>Get Started</button>
             </div>
             <div className=''>
                 <img src={getstart} alt='/' className='h-[30vh] w-[70vw] rounded-[75px]  mt-3 md:h-[50vh] md:w-[85%] mx-auto ' />

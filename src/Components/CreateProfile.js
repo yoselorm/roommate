@@ -67,6 +67,7 @@ const CreateProfile = (props) => {
                 // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
                 const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                 console.log('Upload is ' + progress + '% done');
+                console.log(progress)
                 switch (snapshot.state) {
                     case 'paused':
                         console.log('Upload is paused');
@@ -75,10 +76,10 @@ const CreateProfile = (props) => {
                         console.log('Upload is running');
                         break;
                 }
-                if (progress != 100) {
+                if (progress != 100 && !isNaN(progress)) {
                     setLoader(true)
                 }
-                else {
+                else if (isNaN(progress)) {
                     setLoader(false)
                     setModal(!modal)
                 }
@@ -228,7 +229,7 @@ const CreateProfile = (props) => {
             </div>
             <div className={modal ? 'flex mt-[15rem] sm:mt-24' : 'hidden'}>
                 <div className=' text-black text-md font-semibold w-[300px] h-[20vh] sm:w-[350px] sm:h-[20vh] border-2 p-4 sm:my-4 alone border-slate-600 bg-[#fff] opacity-80  rounded-md mx-auto flex flex-col'>
-                    <h1 className='text-center '>Registration Succeful</h1>
+                    <h1 className='text-center '>Registration Successful</h1>
                     <div className='flex gap-6 justify-center items-center mt-4'>
                         <button className='bg-black text-[#3282B8] hover:bg-[#3282B8] hover:text-white md:w-[20%] p-2 rounded-md font-bold' onClick={handleConfirm}>OK</button>
 

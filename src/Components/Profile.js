@@ -6,7 +6,7 @@ import app from '../Firebase/Config';
 import Navbar from './Navbar';
 import { AuthContext } from '../context/AuthContext';
 import EditModal from './EditModal';
-import { deleteUser, getAuth } from 'firebase/auth';
+import { deleteUser, getAuth, signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 
 const Profile = (props) => {
@@ -56,7 +56,7 @@ const Profile = (props) => {
 
     const auth = getAuth();
     const user = auth.currentUser;
-
+    console.log(user)
 
 
     const profile = useSelector((state) => state.profile)
@@ -78,6 +78,7 @@ const Profile = (props) => {
 
     const handleDelete = (e) => {
         e.preventDefault();
+        //delete user
         deleteUser(user).then(() => {
             // User deleted.
             navigate('/', { replace: true })
@@ -85,6 +86,7 @@ const Profile = (props) => {
             // An error ocurred
             // ...
         });
+
     }
     return (
         <div className=''>

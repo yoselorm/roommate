@@ -359,8 +359,8 @@ const SecondQuestion = (props) => {
                 </div>
 
                 <div className='md:flex hidden justify-between mt-10 mb-10 ]'>
-                    <button className='bg-[#3282B8]  p-4 rounded-md text-black font-bold w-40 hover:bg-slate-500' onClick={handlePrev}>Previous</button>
-                    <button className='bg-[#3282B8]  p-4 rounded-md text-black font-bold w-40 hover:bg-slate-500' onClick={handleNext} >Next</button>
+                    <button className='bg-[#3282B8]  p-4 rounded-md text-black font-bold w-40 hover:bg-blue-200' onClick={handlePrev}>Previous</button>
+                    <button className='bg-[#3282B8]  p-4 rounded-md text-black font-bold w-40 hover:bg-blue-200' onClick={handleNext} >Next</button>
                 </div>
 
             </div>

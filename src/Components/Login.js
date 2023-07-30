@@ -51,8 +51,8 @@ const Login = (props) => {
                 setErr(true)
             });
     }
-    const user_email = email;
-    dispatch(addDetails(user_email))
+    // const user_email = email;
+    // dispatch(addDetails(user_email))
 
 
 
@@ -80,7 +80,7 @@ const Login = (props) => {
                             </div>}
                     </div>
                     <div className='flex justify-end sm:flex sm:justify-start'>
-                        <button className=' bg-[#3282B8] font-bold w-16 p-2 text-sm rounded-lg text-black sm:hover:bg-white' onClick={handleLogin}>LOGIN</button>
+                        <button className=' bg-[#3282B8] font-bold w-16 p-2 text-sm rounded-lg text-black sm:hover:bg-blue-200' onClick={handleLogin}>LOGIN</button>
                     </div>
 
                 </form>
