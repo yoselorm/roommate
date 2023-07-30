@@ -4,7 +4,7 @@ import roomiehero from '../assets/roomie-hero.jpg';
 import { useNavigate } from 'react-router-dom';
 import { addUser } from '../Redux/Action';
 import { connect, useSelector, useDispatch } from "react-redux";
-import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile, signOut } from "firebase/auth";
 import { v4 as uuidv4 } from 'uuid';
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 import app from '../Firebase/Config';
@@ -163,11 +163,28 @@ const CreateProfile = (props) => {
         e.preventDefault();
         navigate('/')
     }
+    const handleLogout = (e) => {
+        e.preventDefault();
+        signOut(auth).then(() => {
+            // Sign-out successful.
+            navigate('/', { replace: true })
+            window.history.replaceState(null, '', '/');
+
+        }).catch((error) => {
+            // An error happened.
+        });
+    }
 
     const handleConfirm = e => {
         e.preventDefault();
-        navigate('/', { replace: true });
-        setModal(false)
+        signOut(auth).then(() => {
+            // Sign-out successful.
+            navigate('/', { replace: true })
+            window.history.replaceState(null, '', '/');
+            setModal(false)
+        }).catch((error) => {
+            // An error happened.
+        });
 
     }
 
