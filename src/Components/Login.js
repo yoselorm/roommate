@@ -57,11 +57,13 @@ const Login = (props) => {
 
 
     return (
-        <div className='sm:flex sm:flex-row sm:m-10 m-6 sm:justify-between mt-20 sm:mt-[6%]'>
-            <div className='text-white sm:w-[70%] sm:h-[50%] sm:ml-[120px] '>
-                <h1 className='font-extrabold text-5xl mb-16 text-[#3282B8] '>RooMBuddy</h1>
+        <div className='sm:flex sm:flex-row max-w-[1460px] mx-auto'>
+            <div className='text-white sm:w-full sm:m-10 m-6 sm:justify-between mt-16 sm:mt-[80px]'>
+                <div className='flex justify-center md:justify-start'>
+                    <p className='font-extrabold text-5xl m-auto text-[#3282B8] '>RooMBuddy</p>
+                </div>
 
-                <form className='flex flex-col justify-center mt-10 sm:flex sm:max-w-[80%] sm:flex-col bg-[#413F42] p-6 sm:pl-16 rounded-2xl'>
+                <form className='flex flex-col justify-center mx-auto mt-10 sm:flex sm:max-w-[500px] sm:flex-col bg-[#413F42] p-6 sm:pl-16 rounded-2xl'>
                     <h1 className='font-bold text-3xl mb-8  '>Login</h1>
                     <p className='font-semibold text-xl text-gray-400'>Please sign in to continue</p>
                     {err && <span className='text-[#FF577F]'>Invalid email or password</span>}
@@ -85,11 +87,13 @@ const Login = (props) => {
 
                 </form>
 
+                <div className='flex justify-center  lg:mx-auto my-4'>
+                    <p className='text-center text-black font-semibold'>Don't have an account? <button className='font-semibold text-[#3282B8] hover:text-black cursor-pointer' onClick={handleSignUp}>Sign up</button></p>
+                </div>
 
-                <p className='mt-16 sm:mt-10 text- sm:text-left text-center text-black font-semibold'>Don't have an account? <button className='font-semibold text-[#3282B8] hover:text-black cursor-pointer' onClick={handleSignUp}>Sign up</button></p>
             </div>
-            <div className=' hidden sm:flex sm:justify-center mt-16'>
-                <img src={login} className='w-[80%] h-[80%] logo ' />
+            <div className=' hidden lg:flex md:justify-center  w-full'>
+                <img src={login} className='max-w-[550px] max-h-[450px] logo my-auto' />
             </div>
         </div>
     );

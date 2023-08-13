@@ -35,7 +35,7 @@ function App() {
   }
 
   return (
-    <div className=" font-semibold">
+    <div className=" font-semibold lg:mt-4">
 
 
       <AnimatePresence exitBeforeEnter>

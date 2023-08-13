@@ -359,17 +359,17 @@ const SecondQuestion = (props) => {
                 </div>
 
                 <div className='md:flex hidden justify-between mt-10 mb-10 ]'>
-                    <button className='bg-[#3282B8]  p-4 rounded-md text-black font-bold w-40 hover:bg-blue-200' onClick={handlePrev}>Previous</button>
-                    <button className='bg-[#3282B8]  p-4 rounded-md text-black font-bold w-40 hover:bg-blue-200' onClick={handleNext} >Next</button>
+                    <button className='bg-[#3282B8] shadow-xl p-4 rounded-md text-black font-bold w-40 hover:bg-blue-200 mr-4' onClick={handlePrev}>Previous</button>
+                    <button className='bg-[#3282B8] shadow-xl p-4 rounded-md text-black font-bold w-40 hover:bg-blue-200' onClick={handleNext} >Next</button>
                 </div>
 
             </div>
-            <div className='sm:mt-20 md:mt-10'>
-                <img src={ratingImage} alt='/' className='h-[30vh] w-[76vw] mt-3 sm:h-[50vh] sm:w-[85%] mx-auto ' />
+            <div className='sm:mt-20 md:mt-10 flex justify-items-center'>
+                <img src={ratingImage} alt='/' className='max-h-[80vh] object-cover max-w-[148vw] h-[50vh] w-[65vw] rounded-[75px] m-auto ' />
             </div>
-            <div className='flex justify-between mt-10  sm:hidden'>
-                <button className='bg-[#3282B8]  p-4 rounded-md text-black font-bold w-[100px]' onClick={handlePrev}>Previous</button>
-                <button className='bg-[#3282B8]  p-4 rounded-md text-black font-bold w-[100px]' onClick={handleNext}>Next</button>
+            <div className='flex justify-between mt-10  md:hidden'>
+                <button className='bg-[#3282B8] shadow-xl p-4 rounded-md text-black font-bold w-[100px]' onClick={handlePrev}>Previous</button>
+                <button className='bg-[#3282B8] shadow-xl  p-4 rounded-md text-black font-bold w-[100px]' onClick={handleNext}>Next</button>
             </div>
 
 
