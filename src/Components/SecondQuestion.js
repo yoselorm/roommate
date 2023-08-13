@@ -365,7 +365,7 @@ const SecondQuestion = (props) => {
 
             </div>
             <div className='sm:mt-20 md:mt-10 flex justify-items-center'>
-                <img src={ratingImage} alt='/' className='max-h-[80vh] object-cover max-w-[148vw] h-[50vh] w-[65vw] rounded-[75px] m-auto ' />
+                <img src={ratingImage} alt='/' className='max-h-[80vh] object-cover max-w-[128vw] h-[50vh] w-[73vw] rounded-[75px] m-auto ' />
             </div>
             <div className='flex justify-between mt-10  md:hidden'>
                 <button className='bg-[#3282B8] shadow-xl p-4 rounded-md text-black font-bold w-[100px]' onClick={handlePrev}>Previous</button>
