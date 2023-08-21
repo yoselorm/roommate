@@ -7,13 +7,14 @@ import { useDispatch } from 'react-redux';
 import { AiOutlineEyeInvisible } from 'react-icons/ai';
 import { MdOutlineVisibility } from 'react-icons/md';
 import { doc, setDoc } from 'firebase/firestore';
-import { db } from '../Firebase/Config';
+import { BeatLoader } from 'react-spinners';
+
 
 
 
 
 const Login = (props) => {
-    console.log()
+    const [loading, setLoading] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [toggle, setToggle] = useState(false);
@@ -35,7 +36,8 @@ const Login = (props) => {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        signInWithEmailAndPassword(auth, email, password)
+        setLoading(true)
+        await signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
@@ -50,6 +52,7 @@ const Login = (props) => {
                 const errorMessage = error.message;
                 setErr(true)
             });
+        setLoading(false)
     }
     // const user_email = email;
     // dispatch(addDetails(user_email))
@@ -63,7 +66,7 @@ const Login = (props) => {
                     <p className='font-extrabold text-5xl m-auto text-[#3282B8] '>RooMBuddy</p>
                 </div>
 
-                <form className='flex flex-col justify-center mx-auto mt-10 sm:flex sm:max-w-[500px] sm:flex-col bg-[#413F42] p-6 sm:pl-16 rounded-2xl'>
+                <form className='flex flex-col justify-center mx-auto mt-10 sm:flex sm:max-w-[500px] sm:flex-col bg-[#413F42] p-6 sm:pl-16 rounded-2xl relative'>
                     <h1 className='font-bold text-3xl mb-8  '>Login</h1>
                     <p className='font-semibold text-xl text-gray-400'>Please sign in to continue</p>
                     {err && <span className='text-[#FF577F]'>Invalid email or password</span>}
@@ -84,6 +87,11 @@ const Login = (props) => {
                     <div className='flex justify-end sm:flex sm:justify-start'>
                         <button className=' bg-[#3282B8] font-bold w-16 p-2 text-sm rounded-lg text-black sm:hover:bg-blue-200' onClick={handleLogin}>LOGIN</button>
                     </div>
+                    {loading && (
+                        <div className="absolute top-0 left-0 w-full h-full bg-opacity-70 backdrop-filter backdrop-blur-sm flex justify-center items-center rounded-lg">
+                            <BeatLoader color="#3282B8" loading={loading} size={25} />
+                        </div>
+                    )}
 
                 </form>
 
