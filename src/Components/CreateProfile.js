@@ -79,7 +79,7 @@ const CreateProfile = (props) => {
                 if (progress != 100 && !isNaN(progress)) {
                     setLoader(true)
                 }
-                else if (isNaN(progress)) {
+                else if (progress === 100 || isNaN(progress)) {
                     setLoader(false)
                     setModal(!modal)
                 }
